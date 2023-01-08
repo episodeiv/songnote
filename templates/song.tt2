@@ -33,7 +33,15 @@
         </style>
     </head>
     <body>
-        <h1>[% meta.artist %] - [% meta.title %]</h1>
+        <h1>
+            [% meta.artist %] - [% meta.title %]
+            [% IF meta.speed %]
+                <span class="speed">[% meta.speed %] bpm</span>
+            [% END %]
+            [% IF meta.key %]
+                <span class="key">([% meta.key %])</span>
+            [% END %]
+        </h1>
 [% USE Dumper %]
 [% globals = {} %]
         <div class="song">
