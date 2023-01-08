@@ -35,20 +35,23 @@
     <body>
         <h1>[% meta.artist %] - [% meta.title %]</h1>
 [% USE Dumper %]
+[% globals = {} %]
         <div class="song">
             [%FOREACH section IN song %]
                 <div class="section">
                     <h2>[% section.keys.0 %]</h2>
                     [% FOREACH block IN section.values.0 %]
                         [% IF block == '=R' %]
-
                             [% block = previousBlock %]
                         [% ELSIF block == '==' %]
                             <div class="break"></div>
                             [% NEXT %]
+                        [% ELSIF (matches = block.match('^=(.+)$')) %]
+                            [% block = globals.${matches.0} %]
                         [% END %]
 
                         [% IF block.keys.0 %]
+                            [% globals.${block.keys.0} = block %]
                             <div class="block type_[% block.values.0.type %]">[% block.keys.0 %]</div>
                         [% ELSE %]
                             <div class="block">[% block %]</div>
