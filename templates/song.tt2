@@ -3,13 +3,25 @@
     <head>
         <meta charset="utf-8">
         <style>
+            html {
+                font-family: sans-serif;
+            }
+
+            h1 {
+                font-size: 150%;
+                font-weight: bold;
+            }
+            h2 {
+                font-weight: bold;
+                flex-basis: 100%;
+                margin-top: 1em;
+                margin-bottom: 0;
+            }
+
             .section {
                 display: flex;
                 flex-wrap: wrap;
                 width: 13em;
-            }
-            h2 {
-                flex-basis: 100%;
             }
             .block {
                 width: 3em;
@@ -26,6 +38,9 @@
                 width: 0;
             }
 
+            .type_Bass {
+                background-color: green;
+            }
             .type_Lead {
                 background-color: tomato;
             }
