@@ -15,3 +15,12 @@ These boxes can then be labeled with a (yet to determine) color
 scheme and a bunch of additional hints for live players.
 
 Yes, there's not much here yet, but we're working on it, ain't we?
+
+# Todo
+* Write a document explaining the syntax, figure out the names of things
+* Implement additions (`=Something + something else`)
+* Make it look decent
+* Decide the rules for references (`=SomethingElse`), as in: Should any
+  kind of block be recorded for later usage in a reference? Right now, we
+  only record anything with details to it.
+* Ship some example files
