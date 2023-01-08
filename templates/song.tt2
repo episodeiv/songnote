@@ -21,6 +21,11 @@
                 line-height: 30px;
             }
 
+            .break {
+                flex-basis: 100%;
+                width: 0;
+            }
+
             .type_Lead {
                 background-color: tomato;
             }
@@ -38,6 +43,9 @@
                         [% IF block == '=R' %]
 
                             [% block = previousBlock %]
+                        [% ELSIF block == '==' %]
+                            <div class="break"></div>
+                            [% NEXT %]
                         [% END %]
 
                         [% IF block.keys.0 %]
