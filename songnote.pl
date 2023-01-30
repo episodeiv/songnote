@@ -4,6 +4,8 @@ use strict;
 use warnings;
 
 use lib 'local/lib/perl5';
+use File::Basename;
+use Path::Tiny;
 use YAML;
 use Template;
 
@@ -16,6 +18,10 @@ my $songData = YAML::LoadFile($input);
 
 my $tt = Template->new({
     INCLUDE_PATH => './templates',
-});
+}) or die($!);
 
-my $result = $tt->process('song.tt2', $songData, "output.html") || die $tt->error(), "\n";
+my $output = path("output", basename($input));
+$output =~ s/\.ya?ml$/.html/i;
+
+
+my $result = $tt->process('song.tt2', $songData, $output) || die $tt->error(), "\n";

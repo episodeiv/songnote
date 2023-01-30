@@ -2,5 +2,5 @@
 .gitignore
 .vscode
 local
-output.html
+output/
 songs/
